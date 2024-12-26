@@ -1,27 +1,16 @@
- // JavaScript for handling form submission
- const form = document.getElementById('contactForm');
- const responseDiv = document.getElementById('response');
+ const form = document.getElementById("contactForm");
+ const responseDiv = document.getElementById("response");
 
- form.addEventListener('submit', function(event) {
-   event.preventDefault(); // Prevent page reload
-   
-   // Get form data
-   const name = document.getElementById('name').value;
-   const email = document.getElementById('email').value;
-   const message = document.getElementById('message').value;
+ form.addEventListener("submit", function(event) {
+   event.preventDefault();
 
-   // Build success message
-   responseDiv.innerHTML = `
-     <strong>Success!</strong> Your message has been sent.<br>
-     <strong>Name:</strong> ${name}<br>
-     <strong>Email:</strong> ${email}<br>
-     <strong>Message:</strong> ${message}
-   `;
+   // Show success message
+   responseDiv.style.display = "block";
+   setTimeout(() => {
+     responseDiv.style.display = "none";
+   }, 5000); // Hide success message after 5 seconds
 
-   // Show the success message
-   responseDiv.style.display = 'block';
-
-   // Optionally clear the form
+   // Reset the form
    form.reset();
  });
   
